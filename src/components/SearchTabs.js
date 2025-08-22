@@ -10,30 +10,33 @@ const SearchTabs = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '10px' }}>
+    <div className="p-6 bg-white">
+      <div className="flex justify-around mb-4">
         {['PNR', 'Station', 'Train No.'].map(tab => (
           <button
             key={tab}
-            style={{
-              backgroundColor: activeTab === tab ? '#f9a825' : '#fff8dc',
-              fontWeight: activeTab === tab ? 'bold' : 'normal'
-            }}
             onClick={() => setActiveTab(tab)}
+            className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
+              activeTab === tab
+                ? 'bg-yellow-500 text-white font-bold'
+                : 'bg-yellow-100 text-gray-800 hover:bg-yellow-200'
+            }`}
           >
             {tab}
           </button>
         ))}
       </div>
-      <input
-        type="text"
-        placeholder={`Enter ${activeTab}`}
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
-  );
-};
-
-export default SearchTabs;
+      
+      <div className="flex gap-2">
+        <input
+          type="text"
+          placeholder={`Enter ${activeTab}`}
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
+          className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
+        <button
+          onClick={handleSearch}
+          className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+        >
+          Search
