@@ -1,20 +1,19 @@
 import React from "react";
-import bannerImg from "../assets/banner.jpg";
 
-const HeroBanner = () => {
+export default function HeroBanner() {
   return (
-    <div className="relative text-center">
+    <section className="relative w-full">
       <img
-        src={heroImg}
+        src="/banner.jpg" // public folder se direct load hoga
         alt="Raileats Hero"
         className="w-full max-h-[350px] object-cover"
       />
-      <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-        text-2xl md:text-4xl font-bold text-black bg-[#FFD700]/80 px-4 py-2 rounded-xl shadow-lg">
-        Rail Journey ka Swad, only Raileats ke saath!
-      </h1>
-    </div>
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white">
+        <h1 className="text-3xl md:text-5xl font-bold text-[#FFD700]">
+          Rail Journey ka Swad
+        </h1>
+        <p className="text-lg mt-2">Only Raileats ke saath 🚆🍴</p>
+      </div>
+    </section>
   );
-};
-
-export default HeroBanner;
+}
