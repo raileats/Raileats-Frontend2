@@ -13,15 +13,34 @@ const OrderHistory = () => {
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Order History</h2>
-      {orders.map(order => (
-        <div key={order.id} style={{ padding: '10px', border: '1px solid #ccc', marginBottom: '10px', borderRadius: '8px' }}>
-          <p><b>Order ID:</b> {order.id}</p>
-          <p><b>Train No:</b> {order.train}</p>
-          <p><b>Status:</b> {order.status}</p>
-        </div>
-      ))}
+    <div className="p-6">
+      <h2 className="text-2xl font-bold mb-4">Order History</h2>
+      
+      {orders.length === 0 ? (
+        <p className="text-gray-500">No orders found.</p>
+      ) : (
+        orders.map(order => (
+          <div
+            key={order.id}
+            className="p-4 mb-3 border rounded-lg shadow-sm bg-white"
+          >
+            <p><b>Order ID:</b> {order.id}</p>
+            <p><b>Train No:</b> {order.train}</p>
+            <p>
+              <b>Status:</b>{' '}
+              <span
+                className={
+                  order.status === 'Delivered'
+                    ? 'text-green-600 font-semibold'
+                    : 'text-yellow-600 font-semibold'
+                }
+              >
+                {order.status}
+              </span>
+            </p>
+          </div>
+        ))
+      )}
     </div>
   );
 };
