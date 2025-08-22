@@ -11,13 +11,8 @@ const SearchTabs = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          marginBottom: '10px',
-        }}
-      >
+      {/* Tabs */}
+      <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '10px' }}>
         {['PNR', 'Station', 'Train No.'].map((tab) => (
           <button
             key={tab}
@@ -27,7 +22,7 @@ const SearchTabs = () => {
               padding: '8px 16px',
               borderRadius: '6px',
               border: '1px solid #ccc',
-              cursor: 'pointer',
+              cursor: 'pointer'
             }}
             onClick={() => setActiveTab(tab)}
           >
@@ -35,31 +30,23 @@ const SearchTabs = () => {
           </button>
         ))}
       </div>
-      <input
-        type="text"
-        placeholder={`Enter ${activeTab}`}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        style={{
-          padding: '8px',
-          borderRadius: '6px',
-          border: '1px solid #ccc',
-          marginRight: '8px',
-        }}
-      />
-      <button
-        onClick={handleSearch}
-        style={{
-          backgroundColor: '#f9a825',
-          padding: '8px 16px',
-          border: 'none',
-          borderRadius: '6px',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        }}
-      >
-        Search
-      </button>
+
+      {/* Input + Button */}
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <input
+          type="text"
+          placeholder={`Enter ${activeTab}`}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          style={{ flex: 1, padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+        />
+        <button
+          onClick={handleSearch}
+          style={{ backgroundColor: '#f9a825', padding: '8px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer' }}
+        >
+          Search
+        </button>
+      </div>
     </div>
   );
 };
