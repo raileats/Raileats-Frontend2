@@ -1,23 +1,29 @@
-
 import React from "react";
 
 const categories = [
-  { name: "North Indian", img: "https://images.unsplash.com/photo-1604909052681-c8b3f4f2fc6b?auto=format&fit=crop&w=1200&q=60" },
-  { name: "South Indian", img: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1200&q=60" },
-  { name: "Snacks & Fast Food", img: "https://images.unsplash.com/photo-1544025165-1bace2b64e0d?auto=format&fit=crop&w=1200&q=60" },
+  { id: 1, name: "🍱 Thali", description: "North & South Indian Thali" },
+  { id: 2, name: "🍔 Fast Food", description: "Burgers, Sandwiches, Fries" },
+  { id: 3, name: "🍕 Pizza", description: "Cheesy & Delicious" },
+  { id: 4, name: "🥤 Beverages", description: "Soft Drinks & Juices" },
 ];
 
 export default function CategoryCards() {
   return (
-    <div className="grid grid-3">
-      {categories.map((cat, i) => (
-        <div className="card" key={i}>
-          <img src={cat.img} alt={cat.name} />
-          <div className="p">
-            <h3 style={{margin:0}}>{cat.name}</h3>
+    <div className="px-4 py-6 bg-[#FFF8DC]">
+      <h2 className="text-2xl font-bold text-[#222] mb-4">
+        Explore Categories
+      </h2>
+      <div className="grid grid-cols-2 gap-4">
+        {categories.map((cat) => (
+          <div
+            key={cat.id}
+            className="p-4 rounded-2xl shadow-md bg-[#FFD700] hover:bg-[#FFC107] transition cursor-pointer"
+          >
+            <h3 className="text-lg font-semibold text-black">{cat.name}</h3>
+            <p className="text-sm text-gray-800">{cat.description}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
