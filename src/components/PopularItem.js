@@ -9,7 +9,7 @@ const items = [
 
 export default function PopularItems() {
   return (
-    <div className="px-4 py-6 bg-white">
+    <section className="px-4 py-6 bg-white">
       <h2 className="text-2xl font-bold text-[#222] mb-4">
         Popular Items
       </h2>
@@ -17,16 +17,16 @@ export default function PopularItems() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="p-4 rounded-2xl shadow-md border border-[#FFD700] bg-[#FFF8DC]"
+            className="p-4 rounded-2xl shadow-md border border-[#FFD700] bg-[#FFF8DC] hover:shadow-lg transition-shadow duration-300"
           >
             <h3 className="text-lg font-semibold text-black">{item.name}</h3>
-            <p className="text-sm text-gray-700">{item.price}</p>
-            <button className="mt-2 px-3 py-1 rounded-lg bg-[#FFD700] text-black font-semibold hover:bg-[#FFC107] transition">
+            <p className="text-sm text-green-700 font-medium">{item.price}</p>
+            <button className="mt-2 px-3 py-1 rounded-lg bg-[#FFD700] text-black font-semibold hover:bg-[#FFC107] transition-colors duration-300">
               Order Now
             </button>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
