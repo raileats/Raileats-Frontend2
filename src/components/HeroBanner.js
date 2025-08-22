@@ -1,10 +1,11 @@
 import React from 'react';
 import HeroBoyFood from '../assets/hero-boy-food.jpg';
+
 const HeroBanner = () => {
   return (
     <div style={{ position: 'relative', textAlign: 'center' }}>
       <img
-        src={heroImg}
+        src={HeroBoyFood}
         alt="Raileats Hero"
         style={{ width: '100%', maxHeight: '300px', objectFit: 'cover' }}
       />
