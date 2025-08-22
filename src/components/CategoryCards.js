@@ -9,7 +9,7 @@ const categories = [
 
 export default function CategoryCards() {
   return (
-    <div className="px-4 py-6 bg-[#FFF8DC]">
+    <section className="px-4 py-6 bg-[#FFF8DC]">
       <h2 className="text-2xl font-bold text-[#222] mb-4">
         Explore Categories
       </h2>
@@ -17,13 +17,13 @@ export default function CategoryCards() {
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="p-4 rounded-2xl shadow-md bg-[#FFD700] hover:bg-[#FFC107] transition cursor-pointer"
+            className="p-4 rounded-2xl shadow-md bg-[#FFD700] hover:bg-[#FFC107] transition-colors duration-300 cursor-pointer"
           >
             <h3 className="text-lg font-semibold text-black">{cat.name}</h3>
             <p className="text-sm text-gray-800">{cat.description}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
