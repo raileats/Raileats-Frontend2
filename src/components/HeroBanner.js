@@ -1,5 +1,5 @@
 import React from "react";
-import heroImg from "../assets/banner.jpg"; // Train + Food image
+import bannerImg from "../assets/banner.jpg";
 
 const HeroBanner = () => {
   return (
