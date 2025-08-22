@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeroBanner from "./components/HeroBanner";
 import Footer from "./components/Footer";
-import PopularItems from "./components/PopularItems";
+import PopularItems from "./PopularItems";
 import SearchTabs from "./components/SearchTabs";
 import OrderHistory from "./components/OrderHistory";
 
