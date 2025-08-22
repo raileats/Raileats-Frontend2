@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeroBanner from "./components/HeroBanner";
 import SearchTabs from "./components/SearchTabs";
-import PopularItems from "./components/PopularItems"; // ✅ Now correct file name
+import PopularItems from "./components/PopularItems";
 import Footer from "./components/Footer";
 import LoginModal from "./components/LoginModal";
 import OrderHistory from "./components/OrderHistory";
