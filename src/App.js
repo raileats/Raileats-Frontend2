@@ -1,29 +1,48 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import HeroBanner from "./components/HeroBanner";
-import Footer from "./components/Footer";
-import PopularItems from "./PopularItems";
 import SearchTabs from "./components/SearchTabs";
+import PopularItems from "./components/PopularItem"; // ✅ Corrected
+import Footer from "./components/Footer";
+import LoginModal from "./components/LoginModal";
 import OrderHistory from "./components/OrderHistory";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showOrderHistory, setShowOrderHistory] = useState(false);
+
+  const handleLoginClose = () => {
+    setShowLogin(false);
+    if (localStorage.getItem("customerName")) {
+      setIsLoggedIn(true);
+      setShowOrderHistory(true); // ✅ Redirect to OrderHistory after login
+    }
+  };
+
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroBanner />
-              <SearchTabs />
-              <PopularItem />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/order-history" element={<OrderHistory />} />
-      </Routes>
-    </Router>
+    <div className="bg-white min-h-screen text-black">
+      {/* Banner */}
+      <HeroBanner />
+
+      {/* Search Tabs */}
+      <SearchTabs />
+
+      {/* Show OrderHistory if logged in */}
+      {showOrderHistory ? (
+        <OrderHistory />
+      ) : (
+        <>
+          {/* Popular Items */}
+          <PopularItems />
+
+          {/* Footer with Login button */}
+          <Footer onLoginClick={() => setShowLogin(true)} />
+        </>
+      )}
+
+      {/* Login Modal */}
+      <LoginModal show={showLogin} onClose={handleLoginClose} />
+    </div>
   );
 }
 
