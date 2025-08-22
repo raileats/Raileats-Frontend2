@@ -1,34 +1,24 @@
+/* Global styles */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #fff8dc; /* Lemon curry light background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffef5;
+  color: #222;
+}
+
+/* Footer */
+.footer {
+  background-color: #FFD700;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 500;
   color: #000;
 }
 
+/* Buttons */
 button {
-  background-color: #f9a825; /* Raileats yellow */
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: bold;
   cursor: pointer;
-}
-
-input {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 10px;
+  border: none;
+  padding: 8px 14px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  .hero-text {
-    font-size: 18px;
-  }
 }
