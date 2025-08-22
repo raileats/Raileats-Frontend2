@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ added
 
 const LoginModal = ({ show, onClose }) => {
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [otp, setOtp] = useState('');
+  const navigate = useNavigate(); // ✅ initialize
 
   const handleNext = () => {
     if (!name || !mobile) {
       alert("Please enter name and mobile number");
       return;
     }
+    // In real case: send OTP via backend
     setStep(2);
   };
 
@@ -19,18 +22,17 @@ const LoginModal = ({ show, onClose }) => {
       alert("Please enter OTP");
       return;
     }
-    alert(`Logged in: ${name}, ${mobile}`);
+    // In real case: verify OTP via backend
     localStorage.setItem('customerName', name);
     localStorage.setItem('customerMobile', mobile);
     onClose();
+    navigate('/order-history'); // ✅ redirect
   };
 
   if (!show) return null;
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-    >
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-2xl w-11/12 max-w-sm shadow-lg">
         {step === 1 && (
           <>
