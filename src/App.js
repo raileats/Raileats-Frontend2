@@ -1,34 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeroBanner from "./components/HeroBanner";
-import SearchTabs from "./components/SearchTabs";
-import PopularItems from "./components/PopularItems";
 import Footer from "./components/Footer";
-import LoginModal from "./components/LoginModal";
+import PopularItem from "./components/PopularItem";
+import SearchTabs from "./components/SearchTabs";
 import OrderHistory from "./components/OrderHistory";
 
 function App() {
-  const [showLogin, setShowLogin] = useState(false);
-
   return (
-    <div>
-      {/* Hero Section */}
-      <HeroBanner />
-
-      {/* Search Tabs */}
-      <SearchTabs />
-
-      {/* Popular Items */}
-      <PopularItems />
-
-      {/* Order History */}
-      <OrderHistory />
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Login Modal */}
-      <LoginModal show={showLogin} onClose={() => setShowLogin(false)} />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroBanner />
+              <SearchTabs />
+              <PopularItem />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/order-history" element={<OrderHistory />} />
+      </Routes>
+    </Router>
   );
 }
 
