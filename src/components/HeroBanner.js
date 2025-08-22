@@ -1,6 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/hero-boy-food.jpg'; // placeholder image path
-
+import HeroBoyFood from '../assets/hero-boy-food.jpg';
 const HeroBanner = () => {
   return (
     <div style={{ position: 'relative', textAlign: 'center' }}>
