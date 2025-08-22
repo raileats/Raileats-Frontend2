@@ -1,28 +1,17 @@
-import React from 'react';
-import HeroBoyFood from '../assets/hero-boy-food.jpg';
+import React from "react";
+import heroImg from "../assets/banner.jpg"; // Train + Food image
 
 const HeroBanner = () => {
   return (
-    <div style={{ position: 'relative', textAlign: 'center' }}>
+    <div className="relative text-center">
       <img
-        src={HeroBoyFood}
+        src={heroImg}
         alt="Raileats Hero"
-        style={{ width: '100%', maxHeight: '300px', objectFit: 'cover' }}
+        className="w-full max-h-[350px] object-cover"
       />
-      <h1
-        className="hero-text"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          color: '#fff',
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          padding: '10px 20px',
-          borderRadius: '10px',
-        }}
-      >
-        Rail Journey ka Swad, only Raileats ke Paas!
+      <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        text-2xl md:text-4xl font-bold text-black bg-[#FFD700]/80 px-4 py-2 rounded-xl shadow-lg">
+        Rail Journey ka Swad, only Raileats ke saath!
       </h1>
     </div>
   );
