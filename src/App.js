@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HeroBanner from './components/HeroBanner';
 import SearchTabs from './components/SearchTabs';
-import LoginModal from './components/LoginModal';
+import LoginModal from "./components/LoginModal";
 import OrderHistory from './components/OrderHistory';
 
 function App() {
