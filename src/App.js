@@ -1,40 +1,35 @@
 import React, { useState } from "react";
-import HeroBanner from "./components/HeroBanner";
-import SearchTabs from "./components/SearchTabs";
-import PopularItems from "./components/PopularItems";
-import Footer from "./components/Footer";
-import LoginModal from "./components/LoginModal";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";   // ✅ Yehi use karna hai
 import OrderHistory from "./components/OrderHistory";
+import LoginModal from "./components/LoginModal";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showOrderHistory, setShowOrderHistory] = useState(false);
 
   const handleLoginClose = () => {
     setShowLogin(false);
     if (localStorage.getItem("customerName")) {
       setIsLoggedIn(true);
-      setShowOrderHistory(true);
     }
   };
 
   return (
-    <div className="bg-white min-h-screen text-black">
-      <HeroBanner />
-      <SearchTabs />
+    <Router>
+      <div className="bg-white min-h-screen text-black">
+        <Routes>
+          {/* Homepage */}
+          <Route path="/" element={<HomePage />} />
 
-      {showOrderHistory ? (
-        <OrderHistory />
-      ) : (
-        <>
-          <PopularItems />
-          <Footer onLoginClick={() => setShowLogin(true)} />
-        </>
-      )}
+          {/* Order History Page */}
+          <Route path="/orders" element={<OrderHistory />} />
+        </Routes>
 
-      <LoginModal show={showLogin} onClose={handleLoginClose} />
-    </div>
+        {/* Global Login Modal */}
+        <LoginModal show={showLogin} onClose={handleLoginClose} />
+      </div>
+    </Router>
   );
 }
 
