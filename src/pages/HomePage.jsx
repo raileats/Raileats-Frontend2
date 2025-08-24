@@ -8,22 +8,24 @@ import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-white min-h-screen text-black">
       {/* Hero Section */}
       <HeroBanner />
 
-      {/* Search / Filter Tabs */}
-      <SearchTabs />
+      {/* Search Tabs Section */}
+      <section className="py-8">
+        <SearchTabs />
+      </section>
 
-      {/* Category Cards */}
-      <section style={{ padding: "2rem 0" }}>
-        <h2 style={{ textAlign: "center", marginBottom: "1rem" }}>Categories</h2>
+      {/* Categories Section */}
+      <section className="py-12">
+        <h2 className="text-2xl font-semibold text-center mb-6">Categories</h2>
         <CategoryCards />
       </section>
 
-      {/* Popular Items */}
-      <section style={{ padding: "2rem 0", backgroundColor: "#f9f9f9" }}>
-        <h2 style={{ textAlign: "center", marginBottom: "1rem" }}>Popular Items</h2>
+      {/* Popular Items Section */}
+      <section className="py-12 bg-gray-50">
+        <h2 className="text-2xl font-semibold text-center mb-6">Popular Items</h2>
         <PopularItems />
       </section>
 
